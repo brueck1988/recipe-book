@@ -26,5 +26,12 @@ export class ShoppingListService {
     return this.ingredients.slice();
   }
 
+  addIngredients(ingredients: Ingredient[]) {
+    // for (let ingredient of ingredients) {
+    //   this.addIngredient(ingredient);
+    // }
+    this.ingredients.push(...ingredients); //spread operator converts the array into a list and adds one array element at a time
+    this.IngredientsChanged.emit(this.ingredients.slice());
+  }
 
 }
