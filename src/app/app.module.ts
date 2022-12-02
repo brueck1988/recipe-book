@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { NoRecipeSelectedComponent } from './recipes/no-recipe-selected/no-recipe-selected.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     ShoppingListComponent,
     ShoppingEditComponent,
     DropdownDirective,
-    ErrorPageComponent
+    ErrorPageComponent,
+    NoRecipeSelectedComponent
   ],
   imports: [
     BrowserModule,
