@@ -6,7 +6,7 @@ import { Ingredient } from '../shared/ingredient.model';
   providedIn: 'root'
 })
 export class ShoppingListService {
-  IngredientsChanged = new Subject<Ingredient[]>();
+  ingredientsChanged = new Subject<Ingredient[]>();
   startedEditingIngredient = new Subject<number>();
   index: number;
 
@@ -26,7 +26,7 @@ export class ShoppingListService {
  }
   addIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
-    this.IngredientsChanged.next(this.ingredients.slice());
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
 
   addIngredients(ingredients: Ingredient[]) {
@@ -34,7 +34,12 @@ export class ShoppingListService {
     //   this.addIngredient(ingredient);
     // }
     this.ingredients.push(...ingredients); //spread operator converts the array into a list and adds one array element at a time
-    this.IngredientsChanged.next(this.ingredients.slice());
+    this.ingredientsChanged.next(this.ingredients.slice());
+  }
+
+  updateIngredient(index: number, newIngredient: Ingredient) {
+    this.ingredients[index] = newIngredient;
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
 
 }
