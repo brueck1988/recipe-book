@@ -7,6 +7,8 @@ import { Ingredient } from '../shared/ingredient.model';
 })
 export class ShoppingListService {
   IngredientsChanged = new Subject<Ingredient[]>();
+  startedEditingIngredient = new Subject<number>();
+  index: number;
 
   constructor() { }
 
@@ -15,13 +17,16 @@ export class ShoppingListService {
     new Ingredient('Tomatoes', 10)
   ];
 
+  getIngredients() {
+    return this.ingredients.slice();
+  }
+
+ getIngredient(index: number) {
+    return this.ingredients[index];
+ }
   addIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
     this.IngredientsChanged.next(this.ingredients.slice());
-  }
-
-  getIngredients() {
-    return this.ingredients.slice();
   }
 
   addIngredients(ingredients: Ingredient[]) {
