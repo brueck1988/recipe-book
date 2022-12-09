@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs';
 import { RecipeService } from './../recipe.service';
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model'
@@ -8,12 +9,17 @@ import { Recipe } from '../recipe.model'
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-
   recipes: Recipe[];
+  private subscription: Subscription;
 
   constructor(private RecipeService: RecipeService) { }
 
   ngOnInit() {
+    this.subscription =this.RecipeService.recipesChanged.subscribe(
+      (recipes: Recipe[]) => {
+        this.recipes = recipes;
+      }
+    )
     this.recipes = this.RecipeService.getRecipes();
   }
 }
