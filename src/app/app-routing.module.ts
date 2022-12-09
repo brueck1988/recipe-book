@@ -17,7 +17,7 @@ const routes: Routes = [
   ] },
   { path: 'shopping-list', component: ShoppingListComponent },
   { path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not Found!'} },
-  { path: '**', redirectTo: '/not-found' }
+  // { path: '**', redirectTo: '/not-found' }
 ];
 
 @NgModule({
