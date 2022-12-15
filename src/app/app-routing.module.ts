@@ -1,3 +1,4 @@
+import { AuthComponent } from './auth/auth.component';
 import { RecipesResolverService } from './recipes/recipes-resolver.service';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { NoRecipeSelectedComponent } from './recipes/no-recipe-selected/no-recipe-selected.component';
@@ -17,8 +18,9 @@ const routes: Routes = [
     { path: ':id/edit', component: RecipeEditComponent, resolve: [RecipesResolverService]  },
   ] },
   { path: 'shopping-list', component: ShoppingListComponent },
+  { path: 'auth', component: AuthComponent },
   { path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not Found!'} },
-  // { path: '**', redirectTo: '/not-found' }
+  { path: '**', redirectTo: '/not-found' }
 ];
 
 @NgModule({
