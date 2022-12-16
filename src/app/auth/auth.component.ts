@@ -56,4 +56,8 @@ export class AuthComponent implements OnInit {
     });
     form.reset();
   }
+
+  onHandleError() {
+    this.error = null; // Once the error is null, ngIf condition is no longer met and error message disappears
+  }
 }
