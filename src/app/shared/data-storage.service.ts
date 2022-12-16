@@ -25,13 +25,8 @@ export class DataStorageService {
   }
 
   fetchRecipes() {
-    return this.authService.user.pipe(
-      take(1), 
-      exhaustMap(user => { // take(1) - takes one value from the observable and then automatically unsubscribes
-        return this.http.get<Recipe[]>('https://ng-course-recipe-book-f178a-default-rtdb.firebaseio.com/recipes.json',
-        {params: new HttpParams().set('auth', user.token)} // Add query params - api expects 'auth' key
-        );
-    }),
+        return this.http.get<Recipe[]>('https://ng-course-recipe-book-f178a-default-rtdb.firebaseio.com/recipes.json'
+        ).pipe(
     map((recipes) => {
       return recipes.map((recipe) => {
         return {...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []};
