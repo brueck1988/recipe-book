@@ -6,7 +6,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-  { path: 'shopping-list', component: ShoppingListComponent },
   { path: 'auth', component: AuthComponent }//,
   // { path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not Found!'} },
   // { path: '**', redirectTo: '/not-found' }
