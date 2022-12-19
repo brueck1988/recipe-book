@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core.module';
 import { SharedModule } from './shared/shared.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
@@ -7,28 +8,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorPageComponent } from './error-page/error-page.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthComponent } from './auth/auth.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ErrorPageComponent,
-    AuthComponent
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     RecipesModule,
     ShoppingListModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    AuthModule
   ],
   bootstrap: [AppComponent]
 })
