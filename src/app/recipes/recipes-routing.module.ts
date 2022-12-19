@@ -9,7 +9,7 @@ import { RecipesComponent } from './recipes.component';
 
 const routes: Routes = [
   { 
-    path: 'recipes', component: RecipesComponent, canActivate:[AuthGuard], children: [
+    path: '', component: RecipesComponent, canActivate:[AuthGuard], children: [ //path is blank because it's defined in app routing module for lazy loading
       { path: '', component: NoRecipeSelectedComponent },
       { path: 'new', component: RecipeEditComponent },
       { path: ':id', component: RecipeDetailComponent, resolve: [RecipesResolverService] },
