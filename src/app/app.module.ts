@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpClientModule,
+    StoreModule.forRoot({shoppingList: shoppingListReducer}),
     AppRoutingModule,
     // RecipesModule, // Do not load recipes module here because it's being lazily loaded in router. Modules loaded here are eagerly loaded.
     // ShoppingListModule, // Do not load module here because it's being lazily loaded in router. Modules loaded here are eagerly loaded.
