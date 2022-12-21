@@ -1,4 +1,4 @@
-import { ShoppingListService } from './shopping-list.service';
+// import { ShoppingListService } from './shopping-list.service'; // Replaced by NgRx
 import { Ingredient } from './../shared/ingredient.model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
@@ -16,7 +16,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   // private subscription: Subscription;
 
   constructor(
-    private shoppingListService: ShoppingListService,
+    // private shoppingListService: ShoppingListService, // Replaced by NgRx
     private store: Store<fromShoppingList.AppState>) { }
 
   ngOnInit() {

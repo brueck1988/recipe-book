@@ -1,50 +1,52 @@
-import { Subject } from 'rxjs';
-import { Injectable } from '@angular/core';
-import { Ingredient } from '../shared/ingredient.model';
+//////////////////////Service replaced by NgRx//////////////
 
-@Injectable({
-  providedIn: 'root'
-})
-export class ShoppingListService {
-  ingredientsChanged = new Subject<Ingredient[]>();
-  startedEditingIngredient = new Subject<number>();
-  index: number;
+// import { Subject } from 'rxjs';
+// import { Injectable } from '@angular/core';
+// import { Ingredient } from '../shared/ingredient.model';
 
-  constructor() { }
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class ShoppingListService {
+//   ingredientsChanged = new Subject<Ingredient[]>();
+//   startedEditingIngredient = new Subject<number>();
+//   index: number;
 
-  private ingredients: Ingredient[] = [
-    new Ingredient('Apples', 5),
-    new Ingredient('Tomatoes', 10)
-  ];
+//   constructor() { }
 
-  getIngredients() {
-    return this.ingredients.slice();
-  }
+//   private ingredients: Ingredient[] = [
+//     new Ingredient('Apples', 5),
+//     new Ingredient('Tomatoes', 10)
+//   ];
 
- getIngredient(index: number) {
-    return this.ingredients[index];
- }
-  addIngredient(ingredient: Ingredient) {
-    this.ingredients.push(ingredient);
-    this.ingredientsChanged.next(this.ingredients.slice());
-  }
+//   getIngredients() {
+//     return this.ingredients.slice();
+//   }
 
-  addIngredients(ingredients: Ingredient[]) {
-    // for (let ingredient of ingredients) {
-    //   this.addIngredient(ingredient);
-    // }
-    this.ingredients.push(...ingredients); //spread operator converts the array into a list and adds one array element at a time
-    this.ingredientsChanged.next(this.ingredients.slice());
-  }
+//  getIngredient(index: number) {
+//     return this.ingredients[index];
+//  }
+//   addIngredient(ingredient: Ingredient) {
+//     this.ingredients.push(ingredient);
+//     this.ingredientsChanged.next(this.ingredients.slice());
+//   }
 
-  updateIngredient(index: number, newIngredient: Ingredient) {
-    this.ingredients[index] = newIngredient;
-    this.ingredientsChanged.next(this.ingredients.slice());
-  }
+//   addIngredients(ingredients: Ingredient[]) {
+//     // for (let ingredient of ingredients) {
+//     //   this.addIngredient(ingredient);
+//     // }
+//     this.ingredients.push(...ingredients); //spread operator converts the array into a list and adds one array element at a time
+//     this.ingredientsChanged.next(this.ingredients.slice());
+//   }
 
-  deleteIngredient(index: number) {
-    this.ingredients.splice(index, 1);
-    this.ingredientsChanged.next(this.ingredients.slice());
-  }
+//   updateIngredient(index: number, newIngredient: Ingredient) {
+//     this.ingredients[index] = newIngredient;
+//     this.ingredientsChanged.next(this.ingredients.slice());
+//   }
 
-}
+//   deleteIngredient(index: number) {
+//     this.ingredients.splice(index, 1);
+//     this.ingredientsChanged.next(this.ingredients.slice());
+//   }
+
+// }
