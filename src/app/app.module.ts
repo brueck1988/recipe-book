@@ -12,6 +12,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import * as fromApp from './store/app.reducer';
+import { EffectsModule } from '@ngrx/effects'
+import { AuthEffects } from './auth/store/auth.effects';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import * as fromApp from './store/app.reducer';
     BrowserModule,
     HttpClientModule,
     StoreModule.forRoot(fromApp.appReducer),
+    EffectsModule.forRoot([AuthEffects]),
     AppRoutingModule,
     // RecipesModule, // Do not load recipes module here because it's being lazily loaded in router. Modules loaded here are eagerly loaded.
     // ShoppingListModule, // Do not load module here because it's being lazily loaded in router. Modules loaded here are eagerly loaded.
