@@ -69,7 +69,7 @@ export class AuthService {
 
     if (loadedUser.token) {
       // this.user.next(loadedUser); // Replaced by NgRx
-      this.store.dispatch(new AuthActions.Login({ // Replaces code above
+      this.store.dispatch(new AuthActions.AuthenticateSuccess({ // Replaces code above
         email: loadedUser.email, 
         userId: loadedUser.id, 
         token: loadedUser.token, 
@@ -101,7 +101,7 @@ export class AuthService {
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
     const user = new User(email, userId, token, expirationDate);
     // this.user.next(user); // Replaced by NgRx
-    this.store.dispatch(new AuthActions.Login({ // Replaces code above
+    this.store.dispatch(new AuthActions.AuthenticateSuccess({ // Replaces code above
       email: email, 
       userId: userId, 
       token: token, 

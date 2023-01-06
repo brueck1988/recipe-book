@@ -59,7 +59,7 @@ export class AuthComponent implements OnInit, OnDestroy {
     const email = form.value.email;
     const password = form.value.password;
 
-    let authObs: Observable<AuthResponseData>;
+    // let authObs: Observable<AuthResponseData>; // Replaced by NgRx
 
     this.isLoading = true;
 
@@ -67,7 +67,8 @@ export class AuthComponent implements OnInit, OnDestroy {
       // authObs = this.authService.login(email, password); // Replaced by NgRx
       this.store.dispatch(new AuthActions.LoginStart({email: email, password: password}));
     } else {
-      authObs = this.authService.signup(email, password);
+      // authObs = this.authService.signup(email, password); // Replaced by NgRx
+      this.store.dispatch(new AuthActions.SignupStart({email: email, password: password}));
     }
 
     // authObs.subscribe(
